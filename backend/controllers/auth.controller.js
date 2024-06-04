@@ -80,5 +80,5 @@ export const signup = async function (req, res) {
 };
 export const home = async function (req, res) {
   try {
-  } catch (error) {}
+  } catch (error) { }
 };
