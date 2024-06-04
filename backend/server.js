@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import connectDB from "./db/connectToMongoDB.js";
 import authroutes from './routes/auth.routes.js';
 import messageRoutes from './routes/message.routes.js';
+import userRoutes from './routes/user.routes.js';
 const app = express();
 
 dotenv.config()
@@ -15,6 +16,7 @@ app.use(cookieParser())
 
 app.use('/api/auth', authroutes)
 app.use('/api/messages', messageRoutes)
+app.use('/api/users', userRoutes)
 app.get('/', (req, res) => {
     res.send("hello 8000")
 })
