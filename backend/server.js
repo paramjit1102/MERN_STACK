@@ -27,9 +27,14 @@ app.use('/api/users', userRoutes)
 
 app.use(express.static(path.join(__dirname, '/frontend/dist')))
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
 })
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 connectDB()
     .then(() => {
         server.listen(process.env.PORT || 5000, (res, err) => {
