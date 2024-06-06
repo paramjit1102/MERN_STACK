@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import { useSocketContext } from '../context/SocketContext'
 import useConversation from '../zustand/useConversation';
-import tap_notification from '../assets/sounds/tap-notification.mp3';
-import live_notification from '../assets/sounds/livechat.mp3';
+import live_notification from '../assets/livechat.mp3';
 const useListenMessages = () => {
     const { socket } = useSocketContext();
     const { messages, setMessages } = useConversation();
