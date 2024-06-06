@@ -12,7 +12,7 @@ export const useSendMessage = () => {
                 method: 'post',
                 data: { message }
             })
-            setMessages([...messages, res.data.message])
+            setMessages([...messages, res.data])
         } catch (error) {
             console.log(error, 'errrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
             let err = error.response;
