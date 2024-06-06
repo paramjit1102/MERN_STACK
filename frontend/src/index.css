@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background: url("../bn.png");
+  background: url("./bn.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
