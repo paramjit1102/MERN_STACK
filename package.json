@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node backend/server.js",
-    "build":""
+    "build":"dist"
   },
   "repository": {},
   "author": "",
