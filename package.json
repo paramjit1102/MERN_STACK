@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node backend/server.js",
-    "build":"node backend/dist/assets.index-BFDXGa1I.js"
+    "build":"npm i"
   },
   "repository": {},
   "author": "",
