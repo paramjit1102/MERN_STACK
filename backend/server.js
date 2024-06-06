@@ -21,17 +21,15 @@ app.use(urlencodedParser)
 app.use(cors())
 app.use(express.urlencoded({ extended: true, limit: "16kb" }))
 app.use(cookieParser())
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    next();
-  });
+
 app.use('/api/auth', authroutes)
 app.use('/api/messages', messageRoutes)
 app.use('/api/users', userRoutes)
 
 app.use(express.static(path.join(__dirname, '/frontend/dist')))
 
-app.get("/*", (req, res) => {
+app.get("*", (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
 })
 
