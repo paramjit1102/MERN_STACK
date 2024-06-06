@@ -1,6 +1,7 @@
 import { useSocketContext } from "../../context/SocketContext.jsx";
 import useConversation from "../../zustand/useConversation.js";
 import React from "react";
+import { FaUser } from "react-icons/fa";
 function Conversation({ conversation, lastIdx }) {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const isSelected = selectedConversation?._id === conversation._id;
@@ -17,7 +18,8 @@ function Conversation({ conversation, lastIdx }) {
       >
         <div className={`avatar ${isOnline ? "online" : ""}`}>
           <div className="w-12 rounded-full">
-            <img src={conversation.profilePic} alt="use avatar" />
+            {/* <img src={conversation.profilePic} alt="use avatar" /> */}
+            <FaUser className="w-10 rounded-full"/>
           </div>
         </div>
         <div className="flex flex-col flex-1">
