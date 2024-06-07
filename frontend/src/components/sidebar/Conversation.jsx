@@ -18,8 +18,8 @@ function Conversation({ conversation, lastIdx }) {
       >
         <div className={`avatar ${isOnline ? "online" : ""}`}>
           <div className="w-12 rounded-full">
-            {/* <img src={conversation.profilePic} alt="use avatar" /> */}
-            <FaUser className="w-10 rounded-full"/>
+            <img src={conversation.profilePic} alt="use avatar" />
+            {/* <FaUser className="w-10 rounded-full"/> */}
           </div>
         </div>
         <div className="flex flex-col flex-1">
