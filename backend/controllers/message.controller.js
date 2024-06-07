@@ -26,7 +26,6 @@ export const sendMessage = async function (req, res) {
     }
     await Promise.all([conversation.save(), newMessage.save()]);
     const receiverSocketId = getReceiverSocketId(receiverId);
-    console.log(receiverSocketId,'receiverSocketId',receiverId,'reciverId')
     if (receiverSocketId) {
       io.to(receiverSocketId).emit("newMessage", newMessage)
     }
@@ -53,7 +52,7 @@ export const getMessages = async function (req, res) {
 
     res.status(200).json(messages);
   } catch (error) {
-    onsole.log(error.message, "Error in message controller getMessage error");
+    console.log(error.message, "Error in message controller getMessage error");
     res.status(500).json({ error: "Internal server error" });
   }
 };
