@@ -9,8 +9,8 @@ export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const { authUser } = useAuthContext();
-  // const url = "https://chat-app-5xd6.onrender.com/";
-  const url = "http://localhost:8000";
+  const url = "https://chat-app-5xd6.onrender.com/";
+  // const url = "http://localhost:8000";
   useEffect(() => {
     if (authUser) {
       const socket = io(url, {
@@ -32,7 +32,7 @@ export const SocketContextProvider = ({ children }) => {
   }, [authUser]);
 
   return (
-    <SocketContext.Provider value={{ socket, onlineUsers }}>
+    <SocketContext.Provider value={{ socket, onlineUsers ,io}}>
       {children}
     </SocketContext.Provider>
   );

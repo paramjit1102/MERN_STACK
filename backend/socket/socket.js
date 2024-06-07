@@ -2,8 +2,8 @@ import { Server } from "socket.io"
 import http from "http";
 import express from 'express';
 const app = express();
-const url = 'http://localhost:3000'
-// const url='https://chat-app-5xd6.onrender.com/
+// const url = 'http://localhost:3000'
+const url = 'https://chat-app-5xd6.onrender.com'
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
