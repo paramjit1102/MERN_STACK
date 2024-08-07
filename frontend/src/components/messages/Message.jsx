@@ -2,6 +2,7 @@ import { useAuthContext } from "../../context/AuthContent";
 import useConversation from "../../zustand/useConversation";
 import extractTime from "../../utils/extractTime.js";
 import { FaUser } from "react-icons/fa";
+import { RiDeleteBinLine } from "react-icons/ri"
 const Message = ({ message }) => {
   const { authUser } = useAuthContext();
   const { selectedConversation } = useConversation();
@@ -19,7 +20,10 @@ const Message = ({ message }) => {
       {/* <FaUser className="w-10 rounded-full"/> */}
         </div>
       </div>
-      <div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2 `}> {message.message}</div>
+      <div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2 `}> {message.message}
+        <button>{message._id}-DELETE</button>
+      </div>
+      <div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}><RiDeleteBinLine onClick={handleClick(message._id)} /></div>
       <div className="chat-footer opacity-75 text-xs  text-white flex gap-1  items-center"> {formatDate} </div>
     </div>
   );

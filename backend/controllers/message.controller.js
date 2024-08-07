@@ -1,6 +1,6 @@
 import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js";
-import { getReceiverSocketId,io } from "../socket/socket.js";
+import { getReceiverSocketId, io } from "../socket/socket.js";
 
 export const sendMessage = async function (req, res) {
   try {
@@ -53,6 +53,20 @@ export const getMessages = async function (req, res) {
     res.status(200).json(messages);
   } catch (error) {
     console.log(error.message, "Error in message controller getMessage error");
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+export const deleteMessage = async function (req, res) {
+  try {
+    // const { message } = req.body;
+    const { id: receiverId } = req.params;
+    const senderId = req.user._id;
+    let deleteconversation = await Conversation.deleteOne({
+      participents: { $all: [senderId, receiverId] },
+    });
+    res.status(200).json({ mesaage: "success" });
+  } catch (error) {
+    console.log(error.message, "Error in message controller sendMessage error");
     res.status(500).json({ error: "Internal server error" });
   }
 };
