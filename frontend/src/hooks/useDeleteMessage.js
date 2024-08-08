@@ -14,6 +14,7 @@ export const useDeleteMessage = () => {
             const res = await axios.delete(`/api/messages/${messageId}`);
             console.log(res, 'res');
             if (res.data.message == 'success') {
+                toast.success(res.data.message)
                 return 'success'
 
             }
