@@ -59,12 +59,10 @@ export const getMessages = async function (req, res) {
 export const deleteMessage = async function (req, res) {
   try {
     // const { message } = req.body;
-    const { id: receiverId } = req.params;
-    const senderId = req.user._id;
-    let deleteconversation = await Conversation.deleteOne({
-      participents: { $all: [senderId, receiverId] },
-    });
-    res.status(200).json({ mesaage: "success" });
+    const { id: messageID } = req.params;
+    console.log(req.params,'req.params;')
+    let deleteconversation = await Message.deleteOne({ _id: messageID });
+    res.status(200).json({ message: "success" });
   } catch (error) {
     console.log(error.message, "Error in message controller sendMessage error");
     res.status(500).json({ error: "Internal server error" });

@@ -21,7 +21,6 @@ app.use(urlencodedParser)
 app.use(cors())
 app.use(express.urlencoded({ extended: true, limit: "16kb" }))
 app.use(cookieParser())
-
 app.use('/api/auth', authroutes)
 app.use('/api/messages', messageRoutes)
 app.use('/api/users', userRoutes)

@@ -5,5 +5,5 @@ const router = express.Router();
 
 router.get('/:id', protectRoute , getMessages)
 router.post('/send/:id', protectRoute, sendMessage)
-router.delete('/send/:id', protectRoute, deleteMessage)
+router.delete('/:id', protectRoute, deleteMessage)
 export default router

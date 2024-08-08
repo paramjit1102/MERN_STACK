@@ -2,8 +2,8 @@ import { Server } from "socket.io"
 import http from "http";
 import express from 'express';
 const app = express();
-// const url = 'http://localhost:3000'
-const url = 'https://chat-app-5xd6.onrender.com'
+const url = process.env.BASE_URL
+// const url = 'https://chat-app-5xd6.onrender.com'
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
@@ -26,7 +26,6 @@ io.on("connection", (socket) => {
         delete userSocketMap[userId]
         io.emit("getOnlineUsers", Object.keys(userSocketMap))
     })
-    socket.on('delete_message', (msg) => console.log(msg));
 })
 
 export { app, io, server }
