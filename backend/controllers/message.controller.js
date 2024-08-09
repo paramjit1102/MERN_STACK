@@ -60,8 +60,7 @@ export const deleteMessage = async function (req, res) {
   try {
     // const { message } = req.body;
     const { id: messageID } = req.params;
-    console.log(req.params,'req.params;')
-    let deleteconversation = await Message.deleteOne({ _id: messageID });
+    await Message.deleteOne({ _id: messageID, senderId: req.user._id });
     res.status(200).json({ message: "success" });
   } catch (error) {
     console.log(error.message, "Error in message controller sendMessage error");

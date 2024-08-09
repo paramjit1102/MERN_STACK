@@ -14,7 +14,9 @@ export const useDeleteMessage = () => {
             const res = await axios.delete(`/api/messages/${messageId}`);
             console.log(res, 'res');
             if (res.data.message == 'success') {
+                const res = await axios.get(`/api/messages/${selectedConversation._id}`);
                 toast.success(res.data.message)
+                setMessages(res.data);
                 return 'success'
 
             }

@@ -50,3 +50,6 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
+.d-none{
+  display: none !important;
+}

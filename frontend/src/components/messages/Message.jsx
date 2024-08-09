@@ -31,7 +31,8 @@ const Message = ({ message }) => {
       }
     }
   };
-
+  const deleteButton =fromMe===true?{handleDeleteClick}:"";
+  const hidebutton =fromMe ? "" : "d-none";
   return (
     <div className={`chat ${chatClassName}`}>
       <div>
@@ -49,10 +50,8 @@ const Message = ({ message }) => {
           {formatDate}
         </div>
       </div>
-      <div
-        className="w-10 rounded-full cursor-pointer"
-        onClick={handleDeleteClick}
-      >
+
+      <div className={`w-10 rounded-full cursor-pointer ${hidebutton}`}  onClick={deleteButton.handleDeleteClick} >
         <RiDeleteBinLine className="w-10" />
       </div>
     </div>
